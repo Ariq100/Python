@@ -37,7 +37,8 @@ HexItems = ""
 for x in range(0, len(lines)):
     for item in lines[x]:   
         if (item != ' '):
-            HexItems = HexItems + "%" + str(ord(item))
+            Bytes = item.encode("UTF-32")
+            HexItems = HexItems + str(Bytes)
         else:
             HexItems = HexItems + " "
             

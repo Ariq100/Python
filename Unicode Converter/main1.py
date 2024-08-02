@@ -31,11 +31,13 @@ filename = str(input("Enter the name of the file: "))
 
 lines = ReadFile(filename)
 Items = ""
+HexNum = ""
 
 for x in range(0, len(lines)):
     for item in lines[x]:   
         if (item != ' ' and item != '%'):
-            HexNum = HexNum + str(item)
+            Bytes = item.encode("UTF-32")
+            HexNum = HexNum + str(Bytes)
         elif (item == ' '):
             Line = Line + " "
         elif (item == '%'):
