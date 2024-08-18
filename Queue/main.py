@@ -1,26 +1,23 @@
 #Queue
-# Do it with Classes and Functions 
+# Logic error for the Queue
 
 class Queue:
-    def init(self):
-        self.OutQueue = []
-        self.InQueue = []
+    def __init__(self):
+        self.__OutQueue = []
+        self.__InQueue = []
     
-    def Push(self, Item,InQueue):
-        self.InQueue.append(item)
-        
-    def LengthOfQueue(self, Queue):
-        return len(self.Queue)
+    def Push(self, Item):
+        self.__InQueue.append(Item)
 
-    def Pop(self, InQueue, OutQueue):
-        self.length = len(self.InQueue)
-        
-        if (LengthOfQueue(self.OutQueue) <= 0):
-            return OutQueue.pop()
+    def Pop(self):
+        if (len(self.__OutQueue) > 0):
+            return self.__OutQueue.pop()
         else:
-            for i in range(0, length):
-                self.OutQueue.append(self.InQueue[length - i - 1])
-            self.OutQueue.pop()
+            length = len(self.__InQueue)
+            for i in range(1, length):
+                self.__OutQueue.append(self.__InQueue[length - i])
+            self.__InQueue = []
+            return self.__OutQueue.pop()
 
 def Menu():
     print(f"1. Add to Queue \n 2. Pop from Queue \n 3. Display Queue \n 4. Exit")
@@ -31,12 +28,9 @@ def Menu():
 def UserChose(UserInput):
     if (UserInput == 1):
         Item = str(input("Enter Something: "))
-        User1.Push(Item, InQueue)
+        User1.Push(Item)
     elif (UserInput == 2):
-        User1.Pop(User1.InQueue, User1.OutQueue)
-    # elif (UserInput == 3):
-    #     for i in range(0, LengthOfQueue())
-        
+        print(User1.Pop())
 
 User1 = Queue()
 
